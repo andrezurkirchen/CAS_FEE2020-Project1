@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+      xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Notes</title>
+    <link rel="stylesheet" href="./assets/styles.css">
+</head>
+<body>
+    <div class="box">
+        <label class = "label">Titel</label>
+        <label for="title"></label>
+        <input class="text" id="title" type="text">
+
+        <label class = "label margin">Beschreibung</label>
+        <label for="description"></label>
+        <textarea class="text textarea margin" id="description"></textarea>
+
+       <label class = "label margin">Wichtigkeit</label>
+        <label for="importance"></label>
+        <button id="myBtn" class = "button textleft" value="1" onclick="changeimportance()">&#9889;</button>
+
+        <!--
+        <select class = "button margin" name="importance" id="importance" >
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        -->
+        <br>
+        <label class = "label margin">Erledigt bis</label>
+        <label for="duedate"></label>
+        <input class = "button margin" name="duedate" id="duedate" type="date"  />
+        <br>
+            <button id="buttonsave" class="button fullpage">Speichern</button>
+        <br>
+            <button class="button right" onclick="document.location = './index.html'">Cancel</button>
+        <script src="./assets/createEditNote.js" charset="UTF-8"></script>
+    </div>
+</body>
+</html>
