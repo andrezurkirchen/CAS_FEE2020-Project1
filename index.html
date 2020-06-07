@@ -1,0 +1,51 @@
+<!--Projekt 1 HSR CAS Frontend Engineering 2020
+   André Zurkirchen
+   May 2020
+-->
+
+<!--
+Questions
+- how can I reuse CSS selectors e.g. buttons left right
+- if I use only one CSS for 2 HTML the I get an error for the eventlistener if the id does't exist in the 2nd file
+   >>>see project 1 test
+- the layout is not nice - depending on font size etc.
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notes</title>
+    <link rel="stylesheet" href="./assets/styles.css">
+</head>
+<body>
+<div class="box top">
+    <div class="box left">
+        <button class="button" onclick="document.location = './createEditNote.html'">Create new note</button>
+        <div>
+            <button id="buttonsortbyfinishdate" class="button">By finish date</button>
+            <button id="buttonsortbycreateddate" class="button">By created date</button>
+            <button id="buttonsortbyimportance" class="button">By importance</button>
+        </div>
+    </div>
+    <div class="box right">
+        <label for="selectoruistyle"></label>
+        <select id="selectoruistyle" class="button" name="uistyle">
+            <option value="blackwhite">BlackWhite style</option>
+            <option value="colourful">Colorful style</option>
+        </select>
+        <br>
+        <button id="buttonshowfinished" class="button">Show finished</button>
+
+      <!--  <button id="buttonnotefinished" class="button">Show finished</button> -->
+
+    </div>
+</div>
+    <div id = listWithNotes>
+        <ul id="notesUL">
+        </ul>
+    </div>
+    <script src="./assets/main.js" defer></script>
+</body>
+</html>
