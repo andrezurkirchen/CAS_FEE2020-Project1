@@ -1,0 +1,197 @@
+/* Projekt 1 HSR CAS Frontend Engineering 2020
+   André Zurkirchen
+   May 2020
+ */
+@charset "UTF-8";
+
+* {
+    /*box-sizing: border-box;*/
+    font-size: 16px;
+    font-family: Arial;
+}
+
+.box {
+    background-color: white;
+    max-width: 880px;
+    padding: 10px;
+}
+
+.box .box {
+    background-color: white;
+    color: #444;
+}
+
+.top {
+    min-width: 880px;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 2 ;
+    grid-template-rows: 1;
+}
+
+.textLeft {
+    text-align: left;
+}
+
+.textRight {
+    text-align: right;
+}
+
+.left {
+    grid-column: 1;
+    grid-row: 1;
+    float: left;
+}
+
+.right {
+    grid-column: 2;
+    grid-row: 1;
+    float: right;
+}
+
+#listWithNotes {
+    margin: 0px;
+    height: 320px;
+    max-width: 890px;
+    min-width: 890px;
+    width: auto;
+    overflow: auto;
+    background: white;
+}
+
+ul {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 0px;
+    padding: 0px;
+}
+
+li {
+    /*cursor: pointer;
+    position: relative;*/
+    list-style-type: none;
+    transition: 0.2s;
+}
+
+.noteTitle {
+    min-width: 380px;
+    max-width: 380px;
+    margin-top:20px;
+    padding-left:140px;
+    display:inline-block;
+}
+#checkboxNoteFinished {
+    margin-top:10px;
+    display:inline-block;
+    vertical-align: top;
+}
+.checkboxText {
+    outline: none;
+    min-width: 200px;
+    max-width: 100px;
+    margin-top: 9px;
+    padding-left: 10px;
+    display:inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+
+.noteDescription {
+    outline: none;
+    color: #4062db;
+    background-color: white;
+    min-width: 420px;
+    max-width: 420px;
+    margin-top: 10px;
+    display: inline-block;
+    vertical-align: top;
+    resize: none;
+    padding-right:50px;
+    height: 100px;
+    overflow: hidden;
+ }
+
+/* todo solution for dynamic hight*/
+.expanded {
+    height: 200;
+}
+
+.colapsed{
+    height: 40px;
+}
+
+#buttonExpand {
+    outline: none;
+    border: none;
+    margin-top: 11px;
+    margin-left: -42px;
+    height: 39px;
+    min-width: 39px;
+    background: white;
+    color: black;
+    cursor: pointer;
+}
+
+.button {
+    outline: none;
+    border: 3px solid darkgrey;
+    margin-top: 10px;
+    min-width: 200px;
+    /*box-shadow: darkgrey 1px 1px;*/
+    background-color: white;
+    color: black;
+    padding: 5px 10px;
+    /*text-align: center;*/
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+.type1 {
+    min-width: 70px;
+    min-height: 50px;
+    margin-top: 5px;
+    margin-left: 20px;
+    alignment: left;
+}
+
+
+.button:hover {
+    background: darkgrey;
+}
+}
+
+.right {
+    float: right;
+}
+.fullpage {
+    min-width: 100%;
+}
+
+.label {
+    min-width: 200px;
+    max-with: 200px;
+    display:inline-block;
+    vertical-align: top;
+}
+
+.margin {
+    margin-top: 20px;
+}
+
+.text {
+    outline: none;
+    /*flex: 0 0 200px;*/
+    width: 500px;
+    border: 3px solid #ccc;
+}
+
+.textarea {
+    outline: none;
+    height: 120px;
+    /*min-block-size: 120px;*/
+    /*box-sizing: border-box;*/
+    /*border-radius: 4px;*/
+    /*background-color: #af2424;*/
+    resize: none;
+}
