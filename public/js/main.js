@@ -4,14 +4,17 @@
  */
 
 /* init */
+import {SingleNote} from "../../services/notes";
+import {notes} from '../../services/notes';
+
 var currentNote; // storage place to be used for the edit button
-var noteObjArray = [];
+//var noteObjArray = [];
 var noteObj;
 
 
 /* init */
-createTestData();
-fillNotesUL();
+//createTestData();
+fillNotesUL(notes);
 
 /* create today's date */
 function createDate() {
@@ -23,45 +26,6 @@ function createDate() {
     mm < 10 ? mm = '0' + mm : mm;
     today = dd + '.' + mm + '.' + yyyy;
     return today
-}
-
-/* create test data */
-function createTestData() {
-    noteObj = {
-        noteId: 1, noteFinished: true, noteTitle: "Issue 1", noteDescription: "Description Issue 1Issue 1Issue 1Issue 1Issue 1Issue 1Issue 1Issue 1Issue 1Issue 1Issue 1Issue 1Issue 1Issue 1Issue 1 Description Issue 1 Description Issue 1",
-        noteImportance: 1, noteDueDate: "01.06.2020", noteFinishedDate: "03.06.2020"
-    }
-    noteObjArray.push(noteObj);
-    noteObj = {
-        noteId: 2, noteFinished: false, noteTitle: "Issue 2 bbbbbbb", noteDescription: "Description Issue 2",
-        noteImportance: 2, noteDueDate: "02.02.1902", noteFinishedDate: ""
-    }
-    noteObjArray.push(noteObj);
-    noteObj = {
-        noteId: 3, noteFinished: false, noteTitle: "Issue 3", noteDescription: "Description Issue 3",
-        noteImportance: 3, noteDueDate: "03.03.1903", noteFinishedDate: ""
-    }
-    noteObjArray.push(noteObj);
-    noteObj = {
-        noteId: 4, noteFinished: false, noteTitle: "Issue 4", noteDescription: "Description Issue 4",
-        noteImportance: 4, noteDueDate: "04.04.1904", noteFinishedDate: ""
-    }
-    noteObjArray.push(noteObj);
-    noteObj = {
-        noteId: 5, noteFinished: false, noteTitle: "Issue 5", noteDescription: "Description Issue 5",
-        noteImportance: 5, noteDueDate: "05.05.1905", noteFinishedDate: ""
-    }
-    noteObjArray.push(noteObj);
-    noteObj = {
-        noteId: 6, noteFinished: false, noteTitle: "Issue 6", noteDescription: "Description Issue 6",
-        noteImportance: 1, noteDueDate: "06.06.1906", noteFinishedDate: ""
-    }
-    noteObjArray.push(noteObj);
-    noteObj = {
-        noteId: 7, noteFinished: true, noteTitle: "Issue 7", noteDescription: "Description Issue 7 ddddddddddd",
-        noteImportance: 2, noteDueDate: "06.06.1906", noteFinishedDate: "01.06.2020"
-    }
-    noteObjArray.push(noteObj);
 }
 
 /* create special symbol for importance */
@@ -91,11 +55,15 @@ function createImportanceSymbol(impvalue) {
 }
 
 // add notes to the list
-function fillNotesUL() {
+function fillNotesUL(notes) {
     var i, noteId;
     var li, node, span, text, br, importance;
     for (i = 0; i < noteObjArray.length; i++) {
-        nodeid = i+1;
+        noteId = i+1;
+        let singleNote = new SingleNote();
+        singleNote = notes.get(1);
+
+
         li = document.createElement("li");
 
         // add due data
@@ -242,7 +210,7 @@ document.querySelectorAll('#buttonEdit').forEach(item => {
 
         console.log(e.target.name);
         currentNote = e.target.name; // store current issue ID
-        location.href = "./createEditNote.html";
+        location.href = "../html/createEditNote.html";
         // Todo call edit page
     });
 });

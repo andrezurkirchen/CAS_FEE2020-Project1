@@ -1,0 +1,21 @@
+{
+  "name": "cas-fee2020-project1",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node --experimental-modules --es-module-specifier-resolution=node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "author": "andrezurkirchen",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "^4.17.1",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.1",
+    "nedb-promise": "^2.0.1"
+  }
+}
