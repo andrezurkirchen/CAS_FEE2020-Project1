@@ -1,48 +1,88 @@
-<!--Projekt 1 HSR CAS Frontend Engineering 2020
-   André Zurkirchen
-   May 2020
--->
-
-<!--
-Questions
-- wie kann ich mein Layout flexibel machen?
--->
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html" lang="en-GB">
+<head lang="en">
     <meta charset="UTF-8">
-    <title>Notes</title>
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/styles.css">
+    <script src="../libs/handlebars-v4.0.5.js" defer></script>
+    <script src="../js/utils/handlebars-helpers.js" defer></script>
+    <script src="../js/controllers/index-controller.js" type="module" defer></script>
 </head>
+
 <body>
-<div class="box top">
-    <div class="box left">
-        <button class="button" onclick="document.location = './createEditNote.html'">Create new note</button>
+<header class="page-header">
+    <h1>
+        <button class="button marginleft" onclick="document.location = './createEdit.html#new'">Create new note</button>
+        <span class="title">Notes for you</span>
+        <button id="selectorUiStyle" class="button right marginRight" value="Light-mode">Light-mode</button>
         <div>
-            <button id="buttonsortbyfinishdate" class="button">By finish date</button>
-            <button id="buttonsortbycreateddate" class="button">By created date</button>
-            <button id="buttonsortbyimportance" class="button">By importance</button>
+            <button id="buttonSortByDueDate" class="button marginleft" >By due date</button>
+            <button id="buttonSortByCreateDate" class="button" >By create date</button>
+            <button id="buttonSortByImportance" class="button" >By importance</button>
+            <button id="buttonShowFinished" class="button right marginRight">Show finished</button>
         </div>
-    </div>
-    <div class="box right">
-        <label for="selectoruistyle"></label>
-        <select id="selectoruistyle" class="button" name="uistyle">
-            <option value="blackwhite">BlackWhite style</option>
-            <option value="colourful">Colorful style</option>
-        </select>
-        <br>
-        <button id="buttonshowfinished" class="button">Show finished</button>
+    </h1>
+</header>
 
-      <!--  <button id="buttonnotefinished" class="button">Show finished</button> -->
+<div id="notesContainer" class="js-user"></div>
 
+<script id="notes-template" type="text/x-handlebars-template">
+    <div class = "boxWithNotes">
+    <table class="table">
+        <tbody>
+        {{#each notes}}
+        <tr>
+            <td>{{noteDueDate}}
+                <br> <input data-id="{{_id}}" type="checkbox" id="checkboxFinished" name="undefined" value="{{noteFinished}}"
+                {{#ifCond noteFinished '===' true}}
+                    checked
+                {{/ifCond}}>
+                <span>
+            {{#ifCond noteFinished '===' true}}
+                Finished <br>
+                {{noteFinishedDate}}
+            {{else}}
+                Finished
+            {{/ifCond}}</span>
+            </td>
+            <td> {{noteTitle}}
+               <span class="importance">
+                {{#ifCond noteImportance '===' 1}}
+                    ⚡
+                {{else}}
+                    {{#ifCond noteImportance '===' 2}}
+                            ⚡⚡
+                            {{else}}
+                                {{#ifCond noteImportance '===' 3}}
+                                    ⚡⚡⚡
+                                    {{else}}
+                                        {{#ifCond noteImportance '===' 4}}
+                                            ⚡⚡⚡⚡
+                                            {{else}}
+                                                {{#ifCond noteImportance '===' 5}}
+                                                    ⚡⚡⚡⚡⚡
+                                                     {{else}}
+                                                        ?
+                                                {{/ifCond}}
+                                        {{/ifCond}}
+                                {{/ifCond}}
+                    {{/ifCond}}
+                {{/ifCond}}
+                </span>
+            <br>
+                <textarea id="noteDescription" class="noteDescription" disabled="true">{{noteDescription}}</textarea>
+                <button id="buttonExpand" class="button buttonExpand">∇</button>
+            </td>
+            <td>
+                <button class="button buttonEdit right" onclick="document.location = 'createEdit.html#{{_id}}'">Edit</button>
+            </td>
+        </tr>
+        {{/each}}
+        </tbody>
+    </table>
     </div>
-</div>
-    <div id = listWithNotes>
-        <ul id="notesUL">
-        </ul>
-    </div>
-    <script src="../js/main.js" defer></script>
+</script>
 </body>
 </html>

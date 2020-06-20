@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Note create and edit</title>
+    <script src="../libs/handlebars-v4.0.5.js" defer></script>
+    <script src="../js/utils/handlebars-helpers.js" defer></script>    
+    <script src="../js/controllers/createEdit-controller.js" type="module" defer></script>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div id="orderContainer"></div>
+    <script id="order-template" type="text/x-handlebars-template">
+        <dl>
+            <dt>
+                <label class="label">Titel</label>
+                <input class ="text" type="text" id="title" value="{{noteTitle}}">
+            </dt>
+            <dt>
+                <label class="label marginTop">Description</label>
+                <textarea class="text textarea marginTop" id="description">{{noteDescription}}</textarea>
+            </dt>
+            <dt>
+                <label class="label marginTop">Importance</label>
+                <button class="button marginTop" id="importance" value="{{noteImportance}}">
+                    {{#ifCond noteImportance '===' 1}}
+                        ⚡
+                    {{else}}
+                        {{#ifCond noteImportance '===' 2}}
+                            ⚡⚡
+                        {{else}}
+                            {{#ifCond noteImportance '===' 3}}
+                                ⚡⚡⚡
+                            {{else}}
+                                {{#ifCond noteImportance '===' 4}}
+                                    ⚡⚡⚡⚡
+                                {{else}}
+                                    {{#ifCond noteImportance '===' 5}}
+                                        ⚡⚡⚡⚡⚡
+                                    {{else}}
+                                        ?
+                                    {{/ifCond}}
+                                {{/ifCond}}
+                            {{/ifCond}}
+                        {{/ifCond}}
+                    {{/ifCond}}
+                </button>
+            </dt>
+            <dt>
+                <label class="label marginTop">Due date</label>
+                <input class="button marginTop date" id="duedate" type="date" value={{noteDueDate}}>
+            </dt>
+            <dt>
+                <button id="buttonSave" class="button fullWith">Store</button>
+            </dt>
+            <dt>
+            <button class="button right" onclick="document.location = 'index.html'">Cancel</button>
+            </dt>
+        </dl>
+    </script>
+</body>
+</html>

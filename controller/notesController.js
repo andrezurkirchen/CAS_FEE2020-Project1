@@ -1,22 +1,26 @@
-import {notes} from '../services/notes'
-//import {SecurityUtil} from '../utils/security'
+/* Project 1 HSR CAS Frontend Engineering 2020
+   André Zurkirchen
+   June 2020
+ */
+
+import {notesStorage} from '../services/notesStorage'
 
 export class NotesController {
 
-    async getOrders(req, res) {
-        res.json((await orderStore.all(SecurityUtil.currentUser(req)) || []))
+    async getNotes(req, res) {
+        res.json((await notesStorage.all(req.params.sortCriteria, req.params.showFinished) || []));
     };
 
-    async createPizza(req, res) {
-        res.json(await orderStore.add(req.body.name, SecurityUtil.currentUser(req)));
+    async newNote(req, res) {
+        res.json(await notesStorage.addEmpty(req.body));
     };
 
-    async showOrder(req, res) {
-        res.json(await orderStore.get(req.params.id, SecurityUtil.currentUser(req)));
+    async showNote(req, res) {
+        res.json(await notesStorage.get(req.params.id));
     };
 
-    async deleteOrder(req, res) {
-        res.json(await orderStore.delete(req.params.id, SecurityUtil.currentUser(req)));
+    async updateNote(req, res) {
+        res.json(await notesStorage.update((req.body)));
     };
 }
 

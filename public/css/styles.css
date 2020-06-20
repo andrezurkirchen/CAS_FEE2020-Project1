@@ -1,197 +1,161 @@
-/* Projekt 1 HSR CAS Frontend Engineering 2020
-   André Zurkirchen
-   May 2020
- */
-@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Lato:400,400italic,700|Sansita+One);
 
-* {
-    /*box-sizing: border-box;*/
+:root {
+    --primary-color: #9a99e8;
+    --font-color: #424242;
+    --bg-color: #fff;
+    --heading-color: #7d7777;
+}
+
+[notetheme="Dark-mode"] {
+    --primary-color: #9A97F3;
+    --font-color: #e1e1ff;
+    --bg-color: #161625;
+    --heading-color: #818cab;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    background-color: var(--bg-color);
+    color: var(--font-color);
     font-size: 16px;
-    font-family: Arial;
 }
 
-.box {
-    background-color: white;
-    max-width: 880px;
-    padding: 10px;
-}
-
-.box .box {
-    background-color: white;
-    color: #444;
-}
-
-.top {
-    min-width: 880px;
-    display: grid;
-    grid-gap: 10px;
-    grid-template-columns: 2 ;
-    grid-template-rows: 1;
-}
-
-.textLeft {
-    text-align: left;
-}
-
-.textRight {
-    text-align: right;
-}
-
-.left {
-    grid-column: 1;
-    grid-row: 1;
-    float: left;
-}
-
-.right {
-    grid-column: 2;
-    grid-row: 1;
-    float: right;
-}
-
-#listWithNotes {
-    margin: 0px;
-    height: 320px;
-    max-width: 890px;
-    min-width: 890px;
-    width: auto;
-    overflow: auto;
-    background: white;
-}
-
-ul {
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 0px;
-    padding: 0px;
-}
-
-li {
-    /*cursor: pointer;
-    position: relative;*/
-    list-style-type: none;
-    transition: 0.2s;
-}
-
-.noteTitle {
-    min-width: 380px;
-    max-width: 380px;
-    margin-top:20px;
-    padding-left:140px;
-    display:inline-block;
-}
-#checkboxNoteFinished {
-    margin-top:10px;
-    display:inline-block;
-    vertical-align: top;
-}
-.checkboxText {
+.button {
     outline: none;
+    border: 3px solid var(--primary-color);
+    margin-top: 10px;
+    min-height: 38px;
     min-width: 200px;
-    max-width: 100px;
-    margin-top: 9px;
-    padding-left: 10px;
+    background-color: transparent;
+    color: var(--font-color);
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator{
+    background-image: url(../images/calendar.png);
+    background-position: center;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    color: rgba(204,204,204,0);
+}
+
+.selected{
+    background: var(--primary-color);
+}
+
+.buttonExpand {
+    position: absolute;
+    float: right;
+    outline: none;
+    border: none;
+    margin-top: 11px;
+    margin-left: -39px;
+    height: 43px;
+    min-width: 39px;
+}
+
+.buttonEdit {
+    margin-top: 30px;
+    min-height: 50px;
+    min-width: 50px;
+}
+
+.fullWith {
+    min-width: 100%;
+}
+.right {
+    float: right;
+    /*margin-right: 10px;*/
+}
+
+.marginRight {
+    margin-right: 10px;
+}
+
+
+.marginleft {
+    margin-left: 10px;
+}
+
+.table {
+    border-collapse: collapse;
+    table-layout: auto;
+    width: 100%;
+}
+
+.table tr td:first-child {
+    min-width: 100px;
+}
+.table tr td:nth-child(2) {
+    width: 80%;
+}
+.table tr td:last-child {
+    width: 60px;
+}
+
+.title{
+    vertical-align: middle;
+    color: var(--heading-color);
+}
+.text {
+    outline: none;
+    min-width: 60%;
+    background-color: transparent;
+    color: var(--font-color);
+    border: 3px solid var(--primary-color);
+}
+
+.textarea {
+    height: 120px;
+    background-color: transparent;
+    color: var(--font-color);
+    resize: none;
+}
+
+
+.marginTop {
+    margin-top: 20px;
+}
+.label {
+    min-width: 130px;
     display:inline-block;
     vertical-align: top;
-    box-sizing: border-box;
 }
 
 .noteDescription {
     outline: none;
-    color: #4062db;
-    background-color: white;
-    min-width: 420px;
-    max-width: 420px;
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    width: 100%;
     margin-top: 10px;
     display: inline-block;
     vertical-align: top;
     resize: none;
     padding-right:50px;
-    height: 100px;
+    height: 50px;
     overflow: hidden;
- }
-
-/* todo solution for dynamic hight*/
-.expanded {
-    height: 200;
 }
 
-.colapsed{
-    height: 40px;
-}
-
-#buttonExpand {
-    outline: none;
-    border: none;
-    margin-top: 11px;
-    margin-left: -42px;
-    height: 39px;
-    min-width: 39px;
-    background: white;
-    color: black;
-    cursor: pointer;
-}
-
-.button {
-    outline: none;
-    border: 3px solid darkgrey;
-    margin-top: 10px;
-    min-width: 200px;
-    /*box-shadow: darkgrey 1px 1px;*/
-    background-color: white;
-    color: black;
-    padding: 5px 10px;
-    /*text-align: center;*/
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-}
-.type1 {
-    min-width: 70px;
-    min-height: 50px;
-    margin-top: 5px;
-    margin-left: 20px;
-    alignment: left;
-}
-
-
-.button:hover {
-    background: darkgrey;
-}
-}
-
-.right {
+.importance {
     float: right;
-}
-.fullpage {
-    min-width: 100%;
+    text-align: right;
 }
 
-.label {
-    min-width: 200px;
-    max-with: 200px;
-    display:inline-block;
-    vertical-align: top;
+/* todo solution for dynamic high*/
+.expanded {
+    height: 200px;
+}
+.page-header{
+    margin: 0;
 }
 
-.margin {
-    margin-top: 20px;
-}
-
-.text {
-    outline: none;
-    /*flex: 0 0 200px;*/
-    width: 500px;
-    border: 3px solid #ccc;
-}
-
-.textarea {
-    outline: none;
-    height: 120px;
-    /*min-block-size: 120px;*/
-    /*box-sizing: border-box;*/
-    /*border-radius: 4px;*/
-    /*background-color: #af2424;*/
-    resize: none;
+.boxWithNotes {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: transparent;
 }

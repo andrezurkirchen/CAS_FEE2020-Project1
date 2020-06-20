@@ -1,6 +1,8 @@
 {
   "name": "cas-fee2020-project1",
   "version": "1.0.0",
+  "description": "CAS project work",
+  "main": "index.js",
   "private": true,
   "scripts": {
     "start": "node --experimental-modules --es-module-specifier-resolution=node index.js",
@@ -10,12 +12,17 @@
   "author": "andrezurkirchen",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "^4.17.1",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "morgan": "~1.9.1",
-    "nedb-promise": "^2.0.1"
+    "nedb-promise": "^2.0.1",
+    "nedb-promises": "^4.0.3"
+  },
+  "devDependencies": {
+    "express-jwt": "^5.3.3"
   }
 }
